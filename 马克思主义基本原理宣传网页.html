@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>马克思主义基本原理 · 真理的力量</title>
+<style>
+/* ============ 基础重置 ============ */
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB",sans-serif;
+  color:#2b2320; background:#faf6ef; line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+}
+img { max-width:100%; display:block; }
+a { text-decoration:none; color:inherit; }
+.wrap { width:92%; max-width:1180px; margin:0 auto; }
+.serif { font-family:"STSong","SimSun","Noto Serif SC",serif; }
+
+/* ============ 顶部横幅 ============ */
+.topbar {
+  background:#7a0c0c; color:#f3d9a4; font-size:13px; letter-spacing:2px;
+  text-align:center; padding:8px 10px;
+}
+.hero {
+  position:relative; min-height:92vh;
+  background:linear-gradient(160deg,#3d0606 0%,#6d0d0d 45%,#8f1a12 75%,#5a0909 100%);
+  color:#fff; overflow:hidden;
+  display:flex; align-items:center;
+}
+.hero::before {
+  content:""; position:absolute; inset:0;
+  background:radial-gradient(ellipse at 70% 20%,rgba(255,200,90,.22),transparent 55%),
+             radial-gradient(ellipse at 15% 85%,rgba(255,120,60,.14),transparent 50%);
+}
+.hero-rays {
+  position:absolute; top:-40%; left:50%; width:1400px; height:1400px;
+  transform:translateX(-50%);
+  background:repeating-conic-gradient(from 0deg,rgba(255,215,130,.05) 0deg 6deg,transparent 6deg 12deg);
+  border-radius:50%; pointer-events:none;
+}
+.hero-inner {
+  position:relative; z-index:2; width:92%; max-width:1180px; margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between;
+  flex-wrap:wrap; padding:70px 0;
+}
+.hero-text { flex:1 1 520px; padding-right:40px; }
+.hero-badge {
+  display:inline-block; border:1px solid rgba(243,217,164,.6); color:#f3d9a4;
+  padding:5px 18px; font-size:13px; letter-spacing:4px; border-radius:30px;
+  margin-bottom:26px;
+}
+.hero h1 {
+  font-family:"STSong","SimSun",serif; font-weight:900;
+  font-size:56px; line-height:1.25; letter-spacing:4px;
+  text-shadow:0 4px 24px rgba(0,0,0,.4);
+}
+.hero h1 .gold {
+  background:linear-gradient(180deg,#ffe9b0,#e8b64c);
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:#e8b64c;
+}
+.hero-sub {
+  margin-top:22px; font-size:17px; color:rgba(255,244,220,.9);
+  letter-spacing:1px; max-width:560px; border-left:3px solid #e8b64c;
+  padding-left:16px;
+}
+.hero-quote {
+  margin-top:34px; font-family:"STSong","SimSun",serif; font-size:15px;
+  color:rgba(255,235,200,.75); font-style:italic;
+}
+.hero-fig { flex:1 1 380px; text-align:center; }
+.hero-fig .frame {
+  display:inline-block; padding:14px;
+  background:linear-gradient(145deg,rgba(255,225,150,.25),rgba(255,225,150,.05));
+  border:1px solid rgba(243,217,164,.5); border-radius:14px;
+  box-shadow:0 30px 60px rgba(0,0,0,.45);
+}
+.hero-fig img { border-radius:8px; width:420px; max-width:100%; }
+.hero-fig figcaption {
+  margin-top:12px; font-size:13px; letter-spacing:3px; color:#f3d9a4;
+}
+.scroll-hint {
+  position:absolute; bottom:26px; left:50%; transform:translateX(-50%);
+  color:rgba(243,217,164,.85); font-size:12px; letter-spacing:3px; z-index:2;
+  animation:bob 2.2s ease-in-out infinite;
+}
+@keyframes bob { 0%,100%{transform:translate(-50%,0)} 50%{transform:translate(-50%,8px)} }
+
+/* ============ 章节标题 ============ */
+.sec { padding:90px 0 70px; }
+.sec-head { text-align:center; margin-bottom:56px; }
+.sec-kicker {
+  display:inline-block; color:#a41515; font-size:13px; letter-spacing:6px;
+  border:1px solid rgba(164,21,21,.35); padding:4px 16px; border-radius:20px;
+  background:rgba(164,21,21,.05); margin-bottom:16px;
+}
+.sec-head h2 {
+  font-family:"STSong","SimSun",serif; font-size:38px; color:#5a0909;
+  letter-spacing:3px; font-weight:900;
+}
+.sec-head .bar {
+  width:70px; height:4px; margin:16px auto 0;
+  background:linear-gradient(90deg,#c8341f,#e8b64c); border-radius:2px;
+}
+.sec-head p { margin-top:16px; color:#7a6a5c; font-size:15px; max-width:640px; margin-left:auto; margin-right:auto; }
+
+/* ============ 导论 ============ */
+.intro-grid { display:flex; flex-wrap:wrap; gap:34px; align-items:stretch; }
+.intro-card {
+  flex:1 1 300px; background:#fff; border-radius:14px; padding:34px 28px;
+  border:1px solid #eee2d0; box-shadow:0 12px 34px rgba(90,20,10,.07);
+  position:relative; overflow:hidden;
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.intro-card:hover { transform:translateY(-8px); box-shadow:0 22px 44px rgba(90,20,10,.14); }
+.intro-card::before {
+  content:""; position:absolute; top:0; left:0; right:0; height:5px;
+  background:linear-gradient(90deg,#a41515,#e8b64c);
+}
+.intro-num {
+  font-family:"STSong",serif; font-size:44px; font-weight:900; color:rgba(164,21,21,.14);
+  position:absolute; top:14px; right:20px;
+}
+.intro-card h3 { font-size:20px; color:#7a0c0c; margin-bottom:12px; letter-spacing:1px; }
+.intro-card p { font-size:14.5px; color:#5c5044; }
+
+/* ============ 图文分栏 ============ */
+.split { display:flex; flex-wrap:wrap; align-items:center; gap:56px; margin-bottom:30px; }
+.split.rev { flex-direction:row-reverse; }
+.split .pic { flex:1 1 420px; position:relative; }
+.split .pic .deco {
+  position:absolute; width:100%; height:100%; top:18px; left:18px;
+  border:2px solid rgba(164,21,21,.28); border-radius:14px; z-index:0;
+}
+.split .pic img {
+  position:relative; z-index:1; border-radius:14px;
+  box-shadow:0 24px 50px rgba(60,10,5,.22);
+}
+.split .txt { flex:1 1 420px; }
+.split .txt h3 {
+  font-family:"STSong","SimSun",serif; font-size:28px; color:#6d0d0d;
+  letter-spacing:2px; margin-bottom:6px;
+}
+.split .txt .en { color:#c8a05a; font-size:12px; letter-spacing:4px; text-transform:uppercase; display:block; margin-bottom:18px; }
+.split .txt p { color:#4f453b; font-size:15.5px; margin-bottom:14px; }
+.point-list { margin-top:20px; }
+.point {
+  display:flex; align-items:flex-start; gap:14px; padding:14px 16px;
+  background:#fff; border:1px solid #eee2d0; border-radius:10px; margin-bottom:12px;
+  box-shadow:0 6px 18px rgba(90,20,10,.05);
+}
+.point .dot {
+  flex:0 0 auto; width:30px; height:30px; border-radius:50%;
+  background:linear-gradient(135deg,#a41515,#d0552a); color:#ffe9b0;
+  display:flex; align-items:center; justify-content:center;
+  font-family:"STSong",serif; font-weight:bold; font-size:15px;
+}
+.point b { color:#7a0c0c; }
+.point span { font-size:14.5px; color:#55493e; }
+
+/* ============ 深色章节(政治经济学) ============ */
+.dark-sec {
+  background:linear-gradient(150deg,#2b0505,#4d0a0a 55%,#360707);
+  color:#f5ead6; position:relative; overflow:hidden;
+}
+.dark-sec::before {
+  content:""; position:absolute; inset:0;
+  background:radial-gradient(ellipse at 80% 10%,rgba(232,182,76,.12),transparent 50%);
+}
+.dark-sec .sec-head h2 { color:#f3d9a4; }
+.dark-sec .sec-head p { color:rgba(245,234,214,.7); }
+.dark-sec .sec-kicker { color:#f3d9a4; border-color:rgba(243,217,164,.4); background:rgba(243,217,164,.08); }
+.dark-sec .point { background:rgba(255,255,255,.06); border-color:rgba(243,217,164,.2); }
+.dark-sec .point span { color:rgba(245,234,214,.85); }
+.dark-sec .point b { color:#ffd98a; }
+.dark-sec .point .dot { background:linear-gradient(135deg,#e8b64c,#c8341f); color:#3d0606; }
+.dark-sec .txt h3 { color:#ffd98a; }
+.dark-sec .txt p { color:rgba(245,234,214,.85); }
+.dark-sec .pic .deco { border-color:rgba(243,217,164,.35); }
+
+/* ============ 时间轴 ============ */
+.timeline { position:relative; margin-top:20px; }
+.timeline::before {
+  content:""; position:absolute; top:0; bottom:0; left:50%; width:3px;
+  transform:translateX(-50%);
+  background:linear-gradient(180deg,#c8341f,#e8b64c,#c8341f);
+  border-radius:2px;
+}
+.tl-item { display:flex; justify-content:flex-end; width:50%; padding:0 46px 44px; position:relative; }
+.tl-item:nth-child(even) { margin-left:50%; justify-content:flex-start; }
+.tl-item .node {
+  position:absolute; top:6px; right:-11px; width:22px; height:22px; border-radius:50%;
+  background:#faf6ef; border:5px solid #a41515; box-shadow:0 0 0 4px rgba(164,21,21,.15);
+}
+.tl-item:nth-child(even) .node { right:auto; left:-11px; }
+.tl-card {
+  background:#fff; border:1px solid #eee2d0; border-radius:12px; padding:22px 24px;
+  box-shadow:0 12px 30px rgba(90,20,10,.08); max-width:440px;
+}
+.tl-card .year {
+  display:inline-block; background:linear-gradient(90deg,#a41515,#c8341f); color:#ffe9b0;
+  font-family:"STSong",serif; font-weight:bold; padding:2px 14px; border-radius:16px;
+  font-size:14px; letter-spacing:1px; margin-bottom:8px;
+}
+.tl-card h4 { color:#6d0d0d; font-size:17px; margin-bottom:6px; letter-spacing:1px; }
+.tl-card p { font-size:13.5px; color:#655a4d; }
+
+/* ============ 中国化横幅 ============ */
+.china-band { position:relative; border-radius:18px; overflow:hidden; box-shadow:0 26px 60px rgba(60,10,5,.3); }
+.china-band img { width:100%; height:420px; object-fit:cover; }
+.china-band .cap {
+  position:absolute; inset:0;
+  background:linear-gradient(90deg,rgba(61,6,6,.88) 0%,rgba(61,6,6,.55) 45%,transparent 80%);
+  display:flex; flex-direction:column; justify-content:center; padding:0 56px;
+}
+.china-band .cap h3 { font-family:"STSong",serif; font-size:30px; color:#ffe9b0; letter-spacing:3px; margin-bottom:14px; }
+.china-band .cap p { max-width:520px; color:rgba(255,244,220,.92); font-size:15px; }
+.china-cards { display:flex; flex-wrap:wrap; gap:26px; margin-top:40px; }
+.china-card {
+  flex:1 1 240px; background:#fff; border-radius:14px; padding:28px 24px;
+  border-top:5px solid #c8341f; box-shadow:0 12px 30px rgba(90,20,10,.08);
+  transition:transform .3s ease;
+}
+.china-card:hover { transform:translateY(-6px); }
+.china-card h4 { color:#7a0c0c; font-size:17px; letter-spacing:1px; margin-bottom:10px; }
+.china-card h4 em { font-style:normal; color:#c8a05a; font-size:12px; letter-spacing:3px; display:block; margin-bottom:6px; }
+.china-card p { font-size:13.5px; color:#655a4d; }
+
+/* ============ 名言横幅 ============ */
+.quote-band {
+  background:linear-gradient(120deg,#6d0d0d,#a41515 60%,#7a0c0c);
+  color:#fff; text-align:center; padding:76px 20px; position:relative; overflow:hidden;
+}
+.quote-band::before,.quote-band::after {
+  content:"❝"; position:absolute; font-family:serif; font-size:200px; color:rgba(255,220,150,.12);
+}
+.quote-band::before { top:-30px; left:5%; }
+.quote-band::after { content:"❞"; bottom:-70px; right:5%; }
+.quote-band blockquote {
+  font-family:"STSong","SimSun",serif; font-size:28px; letter-spacing:3px;
+  max-width:860px; margin:0 auto 20px; line-height:1.7; position:relative; z-index:1;
+}
+.quote-band cite { color:#f3d9a4; font-size:15px; letter-spacing:2px; font-style:normal; }
+
+/* ============ 页脚 ============ */
+footer { background:#2b0505; color:rgba(245,234,214,.7); padding:44px 0; text-align:center; font-size:13px; letter-spacing:1px; }
+footer .foot-title { font-family:"STSong",serif; color:#f3d9a4; font-size:18px; letter-spacing:4px; margin-bottom:10px; }
+footer .line { width:60px; height:2px; background:#c8a05a; margin:14px auto; }
+
+/* ============ 响应式 ============ */
+@media (max-width:900px) {
+  .hero h1 { font-size:38px; }
+  .hero { min-height:auto; }
+  .timeline::before { left:12px; }
+  .tl-item, .tl-item:nth-child(even) { width:100%; margin-left:0; justify-content:flex-start; padding:0 0 36px 44px; }
+  .tl-item .node, .tl-item:nth-child(even) .node { left:2px; right:auto; }
+  .china-band .cap { padding:0 28px; background:linear-gradient(180deg,rgba(61,6,6,.5),rgba(61,6,6,.85)); }
+  .quote-band blockquote { font-size:21px; }
+  .sec-head h2 { font-size:29px; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">MARXISM · 科学的世界观与方法论 · 1848 — 至今</div>
+
+<!-- ================= 首屏 ================= -->
+<header class="hero">
+  <div class="hero-rays"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="hero-badge">理 论 宣 传 专 题</span>
+      <h1 class="serif">马克思主义<br><span class="gold">基本原理</span></h1>
+      <p class="hero-sub">马克思主义是关于无产阶级和人类解放的科学,由马克思主义哲学、马克思主义政治经济学和科学社会主义三个部分组成,是认识世界、改造世界的强大思想武器。</p>
+      <p class="hero-quote">“哲学家们只是用不同的方式解释世界,而问题在于改变世界。” —— 马克思《关于费尔巴哈的提纲》</p>
+    </div>
+    <figure class="hero-fig">
+      <div class="frame">
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=grand%20epic%20monumental%20illustration%20of%20Karl%20Marx%20statue%20silhouette%20with%20flowing%20red%20flag%2C%20golden%20light%20rays%20behind%2C%20workers%20and%20gears%20at%20base%2C%20deep%20crimson%20and%20gold%20color%20scheme%2C%20dramatic%20cinematic%20lighting%2C%20soviet%20poster%20art%20style&image_size=portrait_4_3" alt="马克思与工人阶级主题艺术插画">
+      </div>
+      <figcaption>卡尔·马克思 1818 — 1883</figcaption>
+    </figure>
+  </div>
+  <div class="scroll-hint">▼ 向下滚动 · 探索真理</div>
+</header>
+
+<!-- ================= 一、马克思主义导论 ================= -->
+<section class="sec" id="intro">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">第 一 章</span>
+      <h2 class="serif">什么是马克思主义</h2>
+      <div class="bar"></div>
+      <p>马克思主义由马克思、恩格斯创立并为后继者不断发展的科学理论体系,包含三个相互联系、不可分割的组成部分。</p>
+    </div>
+    <div class="intro-grid">
+      <div class="intro-card">
+        <span class="intro-num">壹</span>
+        <h3>马克思主义哲学</h3>
+        <p>即辩证唯物主义和历史唯物主义,是马克思主义的世界观和方法论基础,为整个理论体系提供了科学的思想方法,揭示了自然、社会和思维发展的一般规律。</p>
+      </div>
+      <div class="intro-card">
+        <span class="intro-num">贰</span>
+        <h3>马克思主义政治经济学</h3>
+        <p>运用辩证唯物主义研究社会生产关系,通过劳动价值论和剩余价值学说,揭示了资本主义生产方式的本质及其产生、发展和灭亡的历史趋势。</p>
+      </div>
+      <div class="intro-card">
+        <span class="intro-num">叁</span>
+        <h3>科学社会主义</h3>
+        <p>是马克思主义的理论归宿和核心结论,阐明了无产阶级解放的条件和发展规律,论证了社会主义代替资本主义的历史必然性,指明了实现共产主义的光明道路。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 二、马克思主义哲学 ================= -->
+<section class="sec" id="philosophy" style="background:#f4ecdd;">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">第 二 章</span>
+      <h2 class="serif">马克思主义哲学 · 辩证唯物之光</h2>
+      <div class="bar"></div>
+      <p>世界的真正统一性在于它的物质性;事物在对立统一中运动、变化、发展。</p>
+    </div>
+
+    <div class="split">
+      <div class="pic">
+        <div class="deco"></div>
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=abstract%20philosophical%20illustration%20of%20dialectics%2C%20interlocking%20bronze%20gears%20and%20cosmic%20spiral%2C%20balance%20of%20opposing%20forces%20light%20and%20shadow%2C%20warm%20red%20gold%20and%20amber%20tones%2C%20intricate%20engraving%20texture%2C%20majestic%20atmosphere&image_size=landscape_4_3" alt="辩证法主题插画:齿轮与宇宙螺旋">
+      </div>
+      <div class="txt">
+        <h3 class="serif">辩证唯物主义</h3>
+        <span class="en">Dialectical Materialism</span>
+        <p>辩证唯物主义认为,世界是物质的,物质决定意识,意识对物质具有能动的反作用。万事万物处于普遍联系和永恒发展之中,发展的根本原因在于事物内部的矛盾运动。</p>
+        <div class="point-list">
+          <div class="point"><div class="dot">一</div><span><b>对立统一规律:</b>矛盾是事物发展的源泉和动力,要坚持一分为二、具体问题具体分析。</span></div>
+          <div class="point"><div class="dot">二</div><span><b>质量互变规律:</b>量变是质变的必要准备,质变是量变的必然结果,要重视积累、把握时机。</span></div>
+          <div class="point"><div class="dot">三</div><span><b>否定之否定规律:</b>事物发展是前进性与曲折性的统一,前途是光明的,道路是曲折的。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="split rev">
+      <div class="pic">
+        <div class="deco"></div>
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=people%20climbing%20a%20grand%20stone%20staircase%20toward%20radiant%20sunrise%2C%20symbolizing%20practice%20and%20knowledge%20advancing%20in%20spirals%2C%20epic%20realistic%20illustration%2C%20warm%20golden%20red%20palette%2C%20monumental%20scale%2C%20hopeful%20atmosphere&image_size=landscape_4_3" alt="实践与认识螺旋上升主题插画">
+      </div>
+      <div class="txt">
+        <h3 class="serif">实践观与认识论</h3>
+        <span class="en">Theory of Practice &amp; Knowledge</span>
+        <p>实践是认识的基础:实践是认识的来源、认识发展的动力、检验认识真理性的唯一标准,也是认识的目的。认识运动是一个“实践—认识—再实践—再认识”,循环往复以至无穷的辩证发展过程。</p>
+        <div class="point-list">
+          <div class="point"><div class="dot">实</div><span><b>实践第一:</b>全部社会生活在本质上是实践的,理论必须同实际相结合。</span></div>
+          <div class="point"><div class="dot">真</div><span><b>真理标准:</b>真理是客观的、具体的,在实践中检验和发展真理。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="split">
+      <div class="pic">
+        <div class="deco"></div>
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=historical%20materialism%20concept%20art%2C%20ancient%20to%20modern%20civilization%20progression%20relief%20carving%20on%20grand%20wall%2C%20farmers%20workers%20machines%20and%20rising%20sun%2C%20warm%20bronze%20and%20crimson%20tones%2C%20epic%20narrative%20illustration&image_size=landscape_4_3" alt="历史唯物主义主题浮雕插画">
+      </div>
+      <div class="txt">
+        <h3 class="serif">历史唯物主义</h3>
+        <span class="en">Historical Materialism</span>
+        <p>社会存在决定社会意识。生产力与生产关系、经济基础与上层建筑的矛盾运动,是推动社会形态更替的基本动力。人民群众是历史的创造者,是社会物质财富和精神财富的创造者,是社会变革的决定力量。</p>
+        <div class="point-list">
+          <div class="point"><div class="dot">史</div><span><b>社会基本矛盾:</b>生产力决定生产关系,经济基础决定上层建筑。</span></div>
+          <div class="point"><div class="dot">民</div><span><b>群众史观:</b>人民,只有人民,才是创造世界历史的动力。</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 三、政治经济学 ================= -->
+<section class="sec dark-sec" id="economy">
+  <div class="wrap" style="position:relative;z-index:1;">
+    <div class="sec-head">
+      <span class="sec-kicker">第 三 章</span>
+      <h2 class="serif">马克思主义政治经济学 · 揭开资本的秘密</h2>
+      <div class="bar"></div>
+      <p>以《资本论》为丰碑,科学揭示资本主义经济制度的内在矛盾与运行规律。</p>
+    </div>
+
+    <div class="split">
+      <div class="pic">
+        <div class="deco"></div>
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=vintage%20engraving%20style%20illustration%20of%20industrial%20revolution%20factory%20with%20workers%2C%20large%20gears%2C%20steam%20and%20coins%2C%20dramatic%20chiaroscuro%20lighting%2C%20deep%20red%20and%20dark%20gold%20tones%2C%20nineteenth%20century%20woodcut%20texture&image_size=landscape_4_3" alt="工业革命与资本主题铜版画风格插画">
+      </div>
+      <div class="txt">
+        <h3 class="serif">劳动价值论与剩余价值学说</h3>
+        <span class="en">Labour Theory of Value &amp; Surplus Value</span>
+        <p>商品具有使用价值和价值二因素,价值由抽象劳动创造,商品的价值量由社会必要劳动时间决定。货币转化为资本的关键,是劳动力成为商品。</p>
+        <p>剩余价值由雇佣工人的剩余劳动创造、被资本家无偿占有,这是资本主义剥削的秘密所在,也是马克思主义经济理论的基石。</p>
+        <div class="point-list">
+          <div class="point"><div class="dot">值</div><span><b>劳动二重性:</b>具体劳动创造使用价值,抽象劳动形成价值。</span></div>
+          <div class="point"><div class="dot">余</div><span><b>剩余价值生产:</b>绝对剩余价值与相对剩余价值的生产揭示了资本增殖的源泉。</span></div>
+          <div class="point"><div class="dot">律</div><span><b>资本积累趋势:</b>资本积累导致两极分化,孕育着资本主义自身否定的因素。</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 四、科学社会主义 ================= -->
+<section class="sec" id="socialism">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">第 四 章</span>
+      <h2 class="serif">科学社会主义 · 通向人类解放之路</h2>
+      <div class="bar"></div>
+      <p>社会主义从空想到科学、从理论到实践、从一国到多国的伟大飞跃。</p>
+    </div>
+
+    <div class="split">
+      <div class="txt">
+        <h3 class="serif">从空想到科学</h3>
+        <span class="en">From Utopia to Science</span>
+        <p>唯物史观和剩余价值学说两大发现,使社会主义由空想变为科学。1848年《共产党宣言》的发表,标志着科学社会主义的诞生,也标志着马克思主义的公开问世。</p>
+        <p>共产主义社会将实现人的自由而全面的发展:“在那里,每个人的自由发展是一切人的自由发展的条件。”</p>
+      </div>
+      <div class="pic">
+        <div class="deco"></div>
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=diverse%20people%20marching%20forward%20together%20toward%20brilliant%20sunrise%20over%20horizon%2C%20red%20banners%20flying%2C%20epic%20hopeful%20illustration%2C%20warm%20golden%20and%20crimson%20palette%2C%20monumental%20mural%20painting%20style&image_size=landscape_4_3" alt="人民携手走向光明未来主题壁画">
+      </div>
+    </div>
+
+    <!-- 发展历程时间轴 -->
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="node"></div>
+        <div class="tl-card">
+          <span class="year">1848</span>
+          <h4>《共产党宣言》发表</h4>
+          <p>马克思、恩格斯为共产主义者同盟起草的纲领发表,系统阐述科学社会主义基本原理,标志着马克思主义的诞生。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="node"></div>
+        <div class="tl-card">
+          <span class="year">1867</span>
+          <h4>《资本论》第一卷出版</h4>
+          <p>系统阐述剩余价值理论,深刻揭示资本主义经济运动规律,被誉为“工人阶级的圣经”。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="node"></div>
+        <div class="tl-card">
+          <span class="year">1917</span>
+          <h4>十月革命胜利</h4>
+          <p>俄国十月革命建立世界上第一个社会主义国家,社会主义从理论变为现实,开辟了人类历史新纪元。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="node"></div>
+        <div class="tl-card">
+          <span class="year">1949</span>
+          <h4>中华人民共和国成立</h4>
+          <p>中国人民站起来了,社会主义制度随后在古老东方大国确立,深刻改变了世界政治格局。</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="node"></div>
+        <div class="tl-card">
+          <span class="year">新时代</span>
+          <h4>马克思主义中国化时代化新飞跃</h4>
+          <p>习近平新时代中国特色社会主义思想,是当代中国马克思主义、二十一世纪马克思主义,实现了新的飞跃。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 五、马克思主义中国化 ================= -->
+<section class="sec" id="china" style="background:#f4ecdd;">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">第 五 章</span>
+      <h2 class="serif">马克思主义中国化时代化</h2>
+      <div class="bar"></div>
+      <p>把马克思主义基本原理同中国具体实际相结合、同中华优秀传统文化相结合。</p>
+    </div>
+
+    <div class="china-band">
+      <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=magnificent%20Chinese%20modern%20city%20skyline%20at%20golden%20dawn%20with%20Great%20Wall%20silhouette%20in%20distance%2C%20red%20flags%20and%20warm%20golden%20clouds%2C%20majestic%20panoramic%20illustration%2C%20crimson%20and%20gold%20color%20scheme%2C%20grand%20ceremonial%20atmosphere&image_size=landscape_16_9" alt="金色晨曦中的中国城市与长城">
+      <div class="cap">
+        <h3 class="serif">实践没有止境,理论创新也没有止境</h3>
+        <p>中国共产党为什么能,中国特色社会主义为什么好,归根到底是马克思主义行,是中国化时代化的马克思主义行。</p>
+      </div>
+    </div>
+
+    <div class="china-cards">
+      <div class="china-card">
+        <h4><em>第一次历史性飞跃</em>毛泽东思想</h4>
+        <p>把马克思列宁主义基本原理同中国革命具体实际相结合,开辟了农村包围城市、武装夺取政权的正确道路,指引中国革命取得胜利。</p>
+      </div>
+      <div class="china-card">
+        <h4><em>新的飞跃</em>中国特色社会主义理论体系</h4>
+        <p>包括邓小平理论、“三个代表”重要思想、科学发展观,科学回答了什么是社会主义、怎样建设社会主义等一系列基本问题。</p>
+      </div>
+      <div class="china-card">
+        <h4><em>新的飞跃</em>习近平新时代中国特色社会主义思想</h4>
+        <p>立足新时代伟大实践,系统回答了新时代坚持和发展中国特色社会主义的重大时代课题,是党和国家必须长期坚持的指导思想。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 名言横幅 ================= -->
+<section class="quote-band">
+  <blockquote class="serif">“代替那存在着阶级和阶级对立的资产阶级旧社会的,将是这样一个联合体,在那里,每个人的自由发展是一切人的自由发展的条件。”</blockquote>
+  <cite>—— 马克思、恩格斯《共产党宣言》</cite>
+</section>
+
+<!-- ================= 结语 ================= -->
+<section class="sec" id="ending">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">结 语</span>
+      <h2 class="serif">让真理之光照亮前行之路</h2>
+      <div class="bar"></div>
+      <p>马克思主义并没有结束真理,而是开辟了通向真理的道路。新时代青年应当自觉学习马克思主义基本原理,掌握科学的世界观和方法论,坚定理想信念,在实现中华民族伟大复兴的历史进程中书写人生华章。</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-title serif">马克思主义基本原理宣传专题</div>
+  <div class="line"></div>
+  <p>学习理论 · 武装头脑 · 指导实践 · 推动工作</p>
+  <p style="margin-top:8px;opacity:.6;">本页面为理论学习宣传静态网页 · 兼容主流浏览器</p>
+</footer>
+
+</body>
+</html>
